@@ -17,3 +17,7 @@ jobs:
     - uses: mymindstorm/setup-emsdk@v6
     - run: emcmake cmake -B build
     - run: cmake --build build
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ooz.js
+        path: build/ooz.js
