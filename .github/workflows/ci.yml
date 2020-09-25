@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+    paths-ignore:
+      - README.md
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: mymindstorm/setup-emsdk@v6
+    - run: emcmake cmake -B build
+    - run: cmake --build build
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ooz.js
+        path: build/ooz.js
