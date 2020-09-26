@@ -7,7 +7,8 @@ WASM bindings for [ooz](https://github.com/powzix/ooz): Open source Kraken, Merm
 `.wasm` file is base64 embedded using `-s SINGLE_FILE=1`.
 
 Requires browser WebAssembly SIMD support.
-Can be enabled in Chromium-based browsers on `about://flags/#enable-webassembly-simd`
+- Can be enabled in Chromium-based browsers on `about://flags/#enable-webassembly-simd`
+- Can be enabled in Firefox on `about:config` `javascript.options.wasm_simd`
 
 ### Usage
 
