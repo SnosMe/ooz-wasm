@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: mymindstorm/setup-emsdk@v6
-    - run: emcmake cmake -B build
+    - run: emcmake cmake -B build -DCMAKE_BUILD_TYPE=Release
     - run: cmake --build build
     - uses: actions/upload-artifact@v2
       with:
