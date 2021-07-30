@@ -1,5 +1,7 @@
 ## ooz-wasm
 
+[![](https://img.shields.io/npm/v/ooz-wasm/latest?color=CC3534&label=ooz-wasm&logo=npm&labelColor=212121)](https://www.npmjs.com/package/ooz-wasm)
+
 WASM bindings for [ooz](https://github.com/powzix/ooz): Open source Kraken, Mermaid, Selkie, Leviathan, LZNA, Bitknit decompressor.
 
 ### Note

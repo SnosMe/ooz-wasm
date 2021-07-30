@@ -4,20 +4,18 @@ on:
   push:
     branches:
       - '**'
-    tags-ignore:
-      - '**'
-    paths-ignore:
-      - README.md
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: mymindstorm/setup-emsdk@v6
+    - uses: mymindstorm/setup-emsdk@v10
     - run: emcmake cmake -B build -DCMAKE_BUILD_TYPE=Release
     - run: cmake --build build
+    - run: npm pack
     - uses: actions/upload-artifact@v2
       with:
-        name: ooz.js
-        path: build/ooz.js
+        name: package
+        path: ooz-wasm-*.tgz
+        retention-days: 1
