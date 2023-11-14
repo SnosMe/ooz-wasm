@@ -1,6 +1,7 @@
 {
   "name": "ooz-wasm",
-  "version": "1.0.1",
+  "version": "2.0.0",
+  "type": "module",
   "author": {
     "name": "Alexander Drozdov"
   },
@@ -14,8 +15,7 @@
     "kraken",
     "wasm"
   ],
-  "main": "index.js",
-  "types": "index.d.ts",
+  "exports": "./index.js",
   "files": [
     "index.d.ts",
     "index.js",

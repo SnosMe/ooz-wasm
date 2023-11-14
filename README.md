@@ -4,9 +4,10 @@
 
 WASM bindings for [ooz](https://github.com/powzix/ooz): Open source Kraken, Mermaid, Selkie, Leviathan, LZNA, Bitknit decompressor.
 
-### Note
+### Notes
 
-`.wasm` file is base64 embedded using `-s SINGLE_FILE=1`.
+- `.wasm` file is base64 embedded using `-s SINGLE_FILE=1`.
+- WebAssembly Module is compiled when the ESM module is imported using a top-level `await`.
 
 Requires browser WebAssembly SIMD support.
 - Can be enabled in Chromium-based browsers on `about://flags/#enable-webassembly-simd`
@@ -15,16 +16,12 @@ Requires browser WebAssembly SIMD support.
 ### Usage
 
 ```ts
-// Compile and instantiate WebAssembly code
-// NOTE: called implicitly by all other methods
-function load(): Promise<void>;
+// Decompress data
+// NOTE: returned TypedArray lives in WASM memory, you can safely use it until the next call to decompressUnsafe/decompress.
+function decompressUnsafe(data: Uint8Array, rawSize: number): Uint8Array;
 
 // Decompress data
-// NOTE: returned TypedArray lives in WASM memory, you can safely use it until the next call to decompressUnsafe/decompress
-function decompressUnsafe(data: Uint8Array, rawSize: number): Promise<Uint8Array>;
-
-// Decompress data
-function decompress(data: Uint8Array, rawSize: number): Promise<Uint8Array>;
+function decompress(data: Uint8Array, rawSize: number): Uint8Array;
 ```
 
 ### Build
